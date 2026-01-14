@@ -1,3 +1,259 @@
 :root {
-    
+    --white: #fff;
+    --Light10: #E6E9EF;
+    --Light20: #9AA4B1;
+    --Dark10: #0B0E14;
+    --Dark20: #11151C;
+    --Dark30: #1B202D;
+    --Primary60: #895AF6;
+    --Primary70: #AC8BF9;
+}
+
+//fix the 12 column issue to % or smth
+
+@font-face {
+    font-family: "Akira_Expanded";
+    src: url("/font/Akira\ Expanded.otf");
+}
+
+@mixin HAkiraFont($size) {
+    font-family: "Akira_Expanded";
+    font-size: $size;
+    letter-spacing: .02em;
+    line-height: 1.1;
+}
+@mixin HFont($size) {
+    font-family: Arial;
+    font-size: $size;
+    font-weight: 600;
+}
+@mixin BFont($size) {
+    font-family: Arial;
+    font-size: $size;
+    font-weight: 400;
+}
+@mixin FRow($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin FColumn($justify: center, $align: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+$Desktop_padding: 0 150px;
+$Border_radius2: 2px;
+$Transition: .3s;
+$gap10: 10px;
+$gap20: 20px;
+$gap40: 40px;
+
+@mixin CTA_Button ($width: 77px, $height: 29px, $size: 0.75rem){
+    width: $width;
+    height: $height;
+    @include BFont($size);
+    @include FRow();
+    background-color: var(--Primary60);
+    color: var(--Light10);
+    border: none;
+    border-radius: $Border_radius2;
+    transition: $Transition;
+
+    &:hover {
+        border: 1px solid var(--Primary70);
+    }
+    &:active {
+        background-color: var(--Primary70);
+    }
+}
+
+body {
+    width: 100%;
+    font-family: Arial;
+    box-sizing: border-box;
+    background-color: var(--Dark10);
+    color: var(--Light10);
+
+    header {
+        width: 100%;
+        
+        padding: $Desktop_padding;
+        position: sticky;
+        top: 0px;
+
+        nav {
+            height: 75px;
+            @include FRow(space-between);
+
+            #logo {
+                @include HAkiraFont(4em)
+            }
+            ul {
+                @include FRow();
+                gap: $gap20;
+                list-style: none;
+
+                li {
+                    @include FRow();
+                    width: 77px;
+                    @include BFont(0.75em);
+                    
+                    a {
+                        color: var(--Light10);
+                        text-decoration: none;
+
+                        &.CTA_Button {
+                            @include CTA_Button();
+                        }
+                    }
+                }
+            }
+        }
+    }
+    main {
+        width: 100%;
+        @include FColumn(flex-start);
+        padding: $Desktop_padding;
+        overflow-y: hidden;
+
+        h2 {
+            @include HAkiraFont(4rem);
+        }
+
+        #hero {
+            height: 100dvh;
+            width: 100%;
+            @include FColumn();
+            gap: $gap20;
+
+            h1 {
+                color: var(--white);
+                @include HAkiraFont(6rem);
+                text-align: center;
+            }
+            p {
+                @include BFont(1.5rem);
+            }
+            .CTA_Button {
+                @include CTA_Button(174px, 54px, 1rem);
+            }
+        }
+        #about-me {
+            width: 100%;
+            @include FColumn(center,start);
+            gap: $gap20;
+            padding: 50px 0;
+
+            #Me_Card {
+                width: 100%;
+                @include FRow(space-between);
+                background-color: var(--Dark30);
+                padding: 3.5rem 6rem;
+
+                #About_Container {
+                    @include FColumn(space-between, start);
+                    gap: $gap20;
+                    width: 367px;
+
+                    h3 {
+                        @include HFont(2.25rem);
+                    }
+                    p {
+                        @include BFont(1rem);
+                        color: var(--Light20);
+                    }
+                    #buttons {
+                        @include FRow();
+                        gap: $gap20;
+
+                        .CTA_Button {
+                            @include CTA_Button();
+                        }
+                    }
+                }
+                img {
+                    width: 367px;
+                    height: 498px;
+                }
+            }
+        }
+        #projects {
+            width: 100%;
+            @include FColumn(center,start);
+            gap: $gap40;
+            padding: 50px 0;
+
+            #Project_Container {
+                @include FRow();
+                gap: 117px;
+
+                .Project {
+                    width: 560px;
+                    @include FColumn();
+                    gap: $gap20;
+                    flex-shrink: 0;
+                    background-color: var(--Dark30);
+
+                    img {
+                        height: 315px;
+                    }
+                    div {
+                        width: 406px;
+                        @include FColumn(center, start);
+                        gap: $gap20;
+                        padding-bottom: 3.5rem;
+
+                        h3 {
+                            @include HFont(2.25rem);
+                        }
+                        p {
+                            @include BFont(1rem);
+                            color: var(--Light20);
+                        }
+                        .CTA_Button {
+                            @include CTA_Button();
+                        }
+                    }
+                }
+            }
+        }
+        #contact {
+            width: 100%;
+            @include FRow();
+            gap: 174px;
+            padding: 50px 0;
+
+            div {
+                @include FColumn(center, start);
+                gap: $gap40;
+
+                p {
+                    @include BFont(1.5rem);
+                    color: var(--Light20);
+                }
+            }
+            #socials {
+                width: 483px;
+                gap: $gap20;
+
+                a {
+                    @include FRow();
+                    gap: $gap40;
+                    @include HFont(2rem);
+                    color: var(--Light10);
+                    text-decoration: none;
+
+                    i {
+                        width: 3.5rem;
+                        text-align: center;
+                        font-size: 3.5rem;
+                        color: var(--Primary70);
+                    }
+                } 
+            }
+        }
+    }
 }

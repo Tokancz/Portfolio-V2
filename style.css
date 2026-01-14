@@ -1,3 +1,319 @@
+:root {
+  --white: #fff;
+  --Light10: #E6E9EF;
+  --Light20: #9AA4B1;
+  --Dark10: #0B0E14;
+  --Dark20: #11151C;
+  --Dark30: #1B202D;
+  --Primary60: #895AF6;
+  --Primary70: #AC8BF9;
+}
 
+@font-face {
+  font-family: "Akira_Expanded";
+  src: url("/font/Akira Expanded.otf");
+}
+body {
+  width: 100%;
+  font-family: Arial;
+  box-sizing: border-box;
+  background-color: var(--Dark10);
+  color: var(--Light10);
+}
+body header {
+  width: 100%;
+  padding: 0 150px;
+  position: sticky;
+  top: 0px;
+}
+body header nav {
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body header nav #logo {
+  font-family: "Akira_Expanded";
+  font-size: 4em;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+body header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+body header nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 77px;
+  font-family: Arial;
+  font-size: 0.75em;
+  font-weight: 400;
+}
+body header nav ul li a {
+  color: var(--Light10);
+  text-decoration: none;
+}
+body header nav ul li a.CTA_Button {
+  width: 77px;
+  height: 29px;
+  font-family: Arial;
+  font-size: 0.75rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Primary60);
+  color: var(--Light10);
+  border: none;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+body header nav ul li a.CTA_Button:hover {
+  border: 1px solid var(--Primary70);
+}
+body header nav ul li a.CTA_Button:active {
+  background-color: var(--Primary70);
+}
+body main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 150px;
+  overflow-y: hidden;
+}
+body main h2 {
+  font-family: "Akira_Expanded";
+  font-size: 4rem;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+body main #hero {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+body main #hero h1 {
+  color: var(--white);
+  font-family: "Akira_Expanded";
+  font-size: 6rem;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: center;
+}
+body main #hero p {
+  font-family: Arial;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+body main #hero .CTA_Button {
+  width: 174px;
+  height: 54px;
+  font-family: Arial;
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Primary60);
+  color: var(--Light10);
+  border: none;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+body main #hero .CTA_Button:hover {
+  border: 1px solid var(--Primary70);
+}
+body main #hero .CTA_Button:active {
+  background-color: var(--Primary70);
+}
+body main #about-me {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+  padding: 50px 0;
+}
+body main #about-me #Me_Card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--Dark30);
+  padding: 3.5rem 6rem;
+}
+body main #about-me #Me_Card #About_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+  width: 367px;
+}
+body main #about-me #Me_Card #About_Container h3 {
+  font-family: Arial;
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+body main #about-me #Me_Card #About_Container p {
+  font-family: Arial;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--Light20);
+}
+body main #about-me #Me_Card #About_Container #buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+body main #about-me #Me_Card #About_Container #buttons .CTA_Button {
+  width: 77px;
+  height: 29px;
+  font-family: Arial;
+  font-size: 0.75rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Primary60);
+  color: var(--Light10);
+  border: none;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+body main #about-me #Me_Card #About_Container #buttons .CTA_Button:hover {
+  border: 1px solid var(--Primary70);
+}
+body main #about-me #Me_Card #About_Container #buttons .CTA_Button:active {
+  background-color: var(--Primary70);
+}
+body main #about-me #Me_Card img {
+  width: 367px;
+  height: 498px;
+}
+body main #projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
+  padding: 50px 0;
+}
+body main #projects #Project_Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 117px;
+}
+body main #projects #Project_Container .Project {
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  background-color: var(--Dark30);
+}
+body main #projects #Project_Container .Project img {
+  height: 315px;
+}
+body main #projects #Project_Container .Project div {
+  width: 406px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+  padding-bottom: 3.5rem;
+}
+body main #projects #Project_Container .Project div h3 {
+  font-family: Arial;
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+body main #projects #Project_Container .Project div p {
+  font-family: Arial;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--Light20);
+}
+body main #projects #Project_Container .Project div .CTA_Button {
+  width: 77px;
+  height: 29px;
+  font-family: Arial;
+  font-size: 0.75rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Primary60);
+  color: var(--Light10);
+  border: none;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+body main #projects #Project_Container .Project div .CTA_Button:hover {
+  border: 1px solid var(--Primary70);
+}
+body main #projects #Project_Container .Project div .CTA_Button:active {
+  background-color: var(--Primary70);
+}
+body main #contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 174px;
+  padding: 50px 0;
+}
+body main #contact div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
+}
+body main #contact div p {
+  font-family: Arial;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--Light20);
+}
+body main #contact #socials {
+  width: 483px;
+  gap: 20px;
+}
+body main #contact #socials a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-family: Arial;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--Light10);
+  text-decoration: none;
+}
+body main #contact #socials a i {
+  width: 3.5rem;
+  text-align: center;
+  font-size: 3.5rem;
+  color: var(--Primary70);
+}
 
 /*# sourceMappingURL=style.css.map */
