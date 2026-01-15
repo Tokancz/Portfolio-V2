@@ -74,6 +74,7 @@ body {
     box-sizing: border-box;
     background-color: var(--Dark10);
     color: var(--Light10);
+    scroll-behavior: smooth;
 
     --Width6Columns: calc((100% - 220px) / 2 + 100px);
     --Width5Columns: calc((100% - 220px) / 12 * 5 + 80px);
