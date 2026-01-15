@@ -41,10 +41,6 @@
     justify-content: $justify;
     align-items: $align;
 }
-@mixin WidthCalc ($count: 1){
-    width: calc((100vw - 300px - 11*20px)/12*$count + 20*($count - 1));
-    //100% - gaps / column count * count + gaps
-}
 
 $Desktop_padding: 0 150px;
 $Border_radius2: 2px;
@@ -79,6 +75,13 @@ body {
     background-color: var(--Dark10);
     color: var(--Light10);
 
+    --Width6Columns: calc((100% - 220px) / 2 + 100px);
+    --Width5Columns: calc((100% - 220px) / 12 * 5 + 80px);
+    --Width4Columns: calc((100% - 220px) / 3 + 60px);
+    --Width3Columns: calc((100% - 220px) / 4 + 40px);
+    --Width1Column20: calc((100% - 220px) / 12 + 20px);
+    --Width1Column40: calc((100% - 220px) / 12 + 40px);
+
     header {
         width: 100%;
         
@@ -94,21 +97,22 @@ body {
                 @include HAkiraFont(4em)
             }
             ul {
+                width: var(--Width3Columns);
                 @include FRow();
                 gap: $gap20;
                 list-style: none;
 
                 li {
+                    width: calc((100% - 40px) / 3);
                     @include FRow();
-                    @include WidthCalc();
-                    @include BFont(0.75em);
+                    @include BFont(1em);
                     
                     a {
                         color: var(--Light10);
                         text-decoration: none;
 
                         &.CTA_Button {
-                            @include CTA_Button();
+                            @include CTA_Button(97px, 39px, 1rem);
                         }
                     }
                 }
@@ -153,18 +157,18 @@ body {
                 width: 100%;
                 @include FRow(space-between);
                 background-color: var(--Dark30);
-                padding: 3.5rem 6rem;
+                padding: 3.5rem var(--Width1Column20);
 
                 #About_Container {
                     @include FColumn(space-between, start);
                     gap: $gap20;
-                    width: 367px;
+                    width: var(--Width4Columns);
 
                     h3 {
-                        @include HFont(2.25rem);
+                        @include HFont(3rem);
                     }
                     p {
-                        @include BFont(1rem);
+                        @include BFont(1.25rem);
                         color: var(--Light20);
                     }
                     #buttons {
@@ -172,13 +176,12 @@ body {
                         gap: $gap20;
 
                         .CTA_Button {
-                            @include CTA_Button();
+                            @include CTA_Button(97px, 39px, 1rem);
                         }
                     }
                 }
                 img {
-                    width: 367px;
-                    height: 498px;
+                    width: var(--Width5Columns);
                 }
             }
         }
@@ -189,21 +192,22 @@ body {
             padding: 50px 0;
 
             #Project_Container {
+                width: 100%;
                 @include FRow();
-                gap: 117px;
+                gap: var(--Width1Column40);
 
                 .Project {
-                    width: 560px;
+                    width: var(--Width6Columns);
                     @include FColumn();
                     gap: $gap20;
                     flex-shrink: 0;
                     background-color: var(--Dark30);
 
                     img {
-                        height: 315px;
+                        width: 100%;;
                     }
                     div {
-                        width: 406px;
+                        width: calc((100% - 100px) / 3 * 2 + 100px);
                         @include FColumn(center, start);
                         gap: $gap20;
                         padding-bottom: 3.5rem;
@@ -224,11 +228,12 @@ body {
         }
         #contact {
             width: 100%;
-            @include FRow();
+            @include FRow(space-between);
             gap: 174px;
             padding: 50px 0;
 
             div {
+                width: var(--Width5Columns);
                 @include FColumn(center, start);
                 gap: $gap40;
 
@@ -238,7 +243,7 @@ body {
                 }
             }
             #socials {
-                width: 483px;
+                width: var(--Width5Columns);
                 gap: $gap20;
 
                 a {

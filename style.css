@@ -19,6 +19,12 @@ body {
   box-sizing: border-box;
   background-color: var(--Dark10);
   color: var(--Light10);
+  --Width6Columns: calc((100% - 220px) / 2 + 100px);
+  --Width5Columns: calc((100% - 220px) / 12 * 5 + 80px);
+  --Width4Columns: calc((100% - 220px) / 3 + 60px);
+  --Width3Columns: calc((100% - 220px) / 4 + 40px);
+  --Width1Column20: calc((100% - 220px) / 12 + 20px);
+  --Width1Column40: calc((100% - 220px) / 12 + 40px);
 }
 body header {
   width: 100%;
@@ -39,6 +45,7 @@ body header nav #logo {
   line-height: 1.1;
 }
 body header nav ul {
+  width: var(--Width3Columns);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,12 +53,12 @@ body header nav ul {
   list-style: none;
 }
 body header nav ul li {
+  width: calc((100% - 40px) / 3);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc((100vw - 300px - 220px) / 12 * 1 + 0);
   font-family: Arial;
-  font-size: 0.75em;
+  font-size: 1em;
   font-weight: 400;
 }
 body header nav ul li a {
@@ -59,10 +66,10 @@ body header nav ul li a {
   text-decoration: none;
 }
 body header nav ul li a.CTA_Button {
-  width: 77px;
-  height: 29px;
+  width: 97px;
+  height: 39px;
   font-family: Arial;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   display: flex;
   justify-content: center;
@@ -152,7 +159,7 @@ body main #about-me #Me_Card {
   justify-content: space-between;
   align-items: center;
   background-color: var(--Dark30);
-  padding: 3.5rem 6rem;
+  padding: 3.5rem var(--Width1Column20);
 }
 body main #about-me #Me_Card #About_Container {
   display: flex;
@@ -160,16 +167,16 @@ body main #about-me #Me_Card #About_Container {
   justify-content: space-between;
   align-items: start;
   gap: 20px;
-  width: 367px;
+  width: var(--Width4Columns);
 }
 body main #about-me #Me_Card #About_Container h3 {
   font-family: Arial;
-  font-size: 2.25rem;
+  font-size: 3rem;
   font-weight: 600;
 }
 body main #about-me #Me_Card #About_Container p {
   font-family: Arial;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: var(--Light20);
 }
@@ -180,10 +187,10 @@ body main #about-me #Me_Card #About_Container #buttons {
   gap: 20px;
 }
 body main #about-me #Me_Card #About_Container #buttons .CTA_Button {
-  width: 77px;
-  height: 29px;
+  width: 97px;
+  height: 39px;
   font-family: Arial;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   display: flex;
   justify-content: center;
@@ -201,8 +208,7 @@ body main #about-me #Me_Card #About_Container #buttons .CTA_Button:active {
   background-color: var(--Primary70);
 }
 body main #about-me #Me_Card img {
-  width: 367px;
-  height: 498px;
+  width: var(--Width5Columns);
 }
 body main #projects {
   width: 100%;
@@ -214,13 +220,14 @@ body main #projects {
   padding: 50px 0;
 }
 body main #projects #Project_Container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 117px;
+  gap: var(--Width1Column40);
 }
 body main #projects #Project_Container .Project {
-  width: 560px;
+  width: var(--Width6Columns);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -230,10 +237,10 @@ body main #projects #Project_Container .Project {
   background-color: var(--Dark30);
 }
 body main #projects #Project_Container .Project img {
-  height: 315px;
+  width: 100%;
 }
 body main #projects #Project_Container .Project div {
-  width: 406px;
+  width: calc((100% - 100px) / 3 * 2 + 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -276,12 +283,13 @@ body main #projects #Project_Container .Project div .CTA_Button:active {
 body main #contact {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 174px;
   padding: 50px 0;
 }
 body main #contact div {
+  width: var(--Width5Columns);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -295,7 +303,7 @@ body main #contact div p {
   color: var(--Light20);
 }
 body main #contact #socials {
-  width: 483px;
+  width: var(--Width5Columns);
   gap: 20px;
 }
 body main #contact #socials a {
