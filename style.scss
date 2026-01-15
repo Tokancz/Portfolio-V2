@@ -9,8 +9,6 @@
     --Primary70: #AC8BF9;
 }
 
-//fix the 12 column issue to % or smth
-
 @font-face {
     font-family: "Akira_Expanded";
     src: url("/font/Akira\ Expanded.otf");
@@ -42,6 +40,10 @@
     flex-direction: column;
     justify-content: $justify;
     align-items: $align;
+}
+@mixin WidthCalc ($count: 1){
+    width: calc((100vw - 300px - 11*20px)/12*$count + 20*($count - 1));
+    //100% - gaps / column count * count + gaps
 }
 
 $Desktop_padding: 0 150px;
@@ -98,7 +100,7 @@ body {
 
                 li {
                     @include FRow();
-                    width: 77px;
+                    @include WidthCalc();
                     @include BFont(0.75em);
                     
                     a {
