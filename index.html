@@ -18,8 +18,8 @@
         <article class="Project">
             <img src="" alt="Project Image">
             <div>
-                <h3>Project Title</h3>
-                <p>Project Description</p>
+                <h3 class="Project_Name">Project Title</h3>
+                <p class="Project_Description">Project Description</p>
                 <button class="CTA_Button">See more</button>
             </div>
     </template>
@@ -41,7 +41,7 @@
         <section id="hero">
             <h1>Crafting 3D Worlds</h1>
             <p>Turning ideas into immersive visuals, one render at a time</p>
-            <button class="CTA_Button">Contact</button>
+            <button class="CTA_Button"><a href="#contact">Contact</a></button>
         </section>
         <section id="about-me">
             <h2>About Me</h2>
@@ -50,8 +50,8 @@
                     <h3>Matyáš Klubal</h3>
                     <p>Hi, I’m Matyáš Klubal — a 3D artist focused on creating detailed scenes, hard-surface designs, and procedural environments. I’ve been working with Blender for several years and enjoy turning ideas into visual stories through lighting, composition, and atmosphere.</p>
                     <div id="buttons">
-                        <button class="CTA_Button">Contact</button>
-                        <button class="CTA_Button">CV</button>
+                        <button class="CTA_Button"><a href="#contact">Contact</a></button>
+                        <button class="CTA_Button"><a href="docs/Matyas_Klubal_CV.pdf" target="_blank">CV</a></button>
                     </div>
                 </div>
                 <img src="images/matyas_klubal.png" alt="Picture of Matyáš Klubal">
@@ -59,32 +59,12 @@
         </section>
         <section id="projects">
             <h2>My Projects</h2>
-            <section id="Project_Container">
-                <article class="Project">
-                    <img src="images/Railgun Spider.png" alt="Project: Railgun Spider">
-                    <div>
-                        <h3>Railgun Spider</h3>
-                        <p>A fully rigged cyber-mechanical spider inspired by my obsession with railguns and futuristic creature design. I created a short animation to showcase its movement and personality.</p>
-                        <button class="CTA_Button">See more</button>
-                    </div>
-                </article>
-                <article class="Project">
-                    <img src="images/Planet4.png" alt="Project: HOPE">
-                    <div>
-                        <h3>Project HOPE</h3>
-                        <p>A 3-5 minute animated short film created as a personal and school project. The goal was to prove that a single creator can produce a complete short film — and hopefully inspire others to try the same.</p>
-                        <button class="CTA_Button">See more</button>
-                    </div>
-                </article>
-                <article class="Project">
-                    <img src="images/Deluxo8.png" alt="Project: Deluxo">
-                    <div>
-                        <h3>Deluxo Animation</h3>
-                        <p>A complete recreation of the DeLorean DMC-12  known as the Deluxo from GTA V or the iconic Back to the Future car. I modeled the entire vehicle from scratch and brought it to life in a stylized animation.</p>
-                        <button class="CTA_Button">See more</button>
-                    </div>
-                </article>
+            <section id="Projects_Container">
             </section>
+            <div id="arrows">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true" id="prev"></i>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true" id="next"></i>
+            </div>
         </section>
         <section id="contact">
             <div>
@@ -92,14 +72,16 @@
                 <p>Have a question or want to work together? Feel free to reach out anytime.</p>
             </div>
             <div id="socials">
-                <a href=""><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
-                <a href=""><i class="fa-regular fa-envelope" aria-hidden="true"></i> Email</a>
-                <a href=""><i class="fa-solid fa-phone" aria-hidden="true"></i> Phone</a>
-                <a href=""><i class="fa-regular fa-file" aria-hidden="true"></i> CV</a>
+                <a href="https://www.instagram.com/tunakos_/"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+                <a href="mailto:matyas.klubal@gmail.com"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Email</a>
+                <a href="tel:+420776053016"><i class="fa-solid fa-phone" aria-hidden="true"></i> Phone</a>
+                <a href="docs/Matyas_Klubal_CV.pdf" target="_blank"><i class="fa-regular fa-file" aria-hidden="true"></i> CV</a>
             </div>
         </section>
     </main>
-
+    <footer>
+        <p>© 2026 Matyáš Klubal — 3D Artist & Designer. All rights reserved.</p>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>

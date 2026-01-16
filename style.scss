@@ -23,12 +23,12 @@
 @mixin HFont($size) {
     font-family: Arial;
     font-size: $size;
-    font-weight: 600;
+    font-weight: 700;
 }
 @mixin BFont($size) {
     font-family: Arial;
     font-size: $size;
-    font-weight: 400;
+    font-weight: 300;
 }
 @mixin FRow($justify: center, $align: center) {
     display: flex;
@@ -60,6 +60,10 @@ $gap40: 40px;
     border-radius: $Border_radius2;
     transition: $Transition;
 
+    a {
+        color: var(--Light10);
+        text-decoration: none;
+    }
     &:hover {
         border: 1px solid var(--Primary70);
     }
@@ -68,14 +72,17 @@ $gap40: 40px;
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     width: 100%;
     font-family: Arial;
     box-sizing: border-box;
     background-color: var(--Dark10);
     color: var(--Light10);
-    scroll-behavior: smooth;
 
+    --Width8Columns: calc((100% - 220px) / 12 * 8 + 140px);
     --Width6Columns: calc((100% - 220px) / 2 + 100px);
     --Width5Columns: calc((100% - 220px) / 12 * 5 + 80px);
     --Width4Columns: calc((100% - 220px) / 3 + 60px);
@@ -89,6 +96,7 @@ body {
         position: sticky;
         top: 0px;
         background: linear-gradient(0deg,rgba(0, 0, 0, 0) 0%, var(--Dark10) 100%);
+        z-index: 10;
 
         nav {
             height: 75px;
@@ -125,7 +133,7 @@ body {
         top: 0;
         height: 100dvh;
         width: 100%;
-        background-image: url("./images/Planet4.png");
+        background-image: url("./images/hope.png");
         background-size: cover;
         z-index: -1;
         filter: brightness(.6) blur(10px);
@@ -134,7 +142,7 @@ body {
         width: 100%;
         @include FColumn(flex-start);
         padding: $Desktop_padding;
-        overflow-y: hidden;
+        overflow-x: hidden;
         background: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, var(--Dark10) 90%);
 
         h2 {
@@ -198,14 +206,15 @@ body {
             }
         }
         #projects {
+            position: relative;
             width: 100%;
-            @include FColumn(center,start);
+            @include FColumn(center, start);
             gap: $gap40;
             padding: 50px 0;
 
-            #Project_Container {
+            #Projects_Container {
                 width: 100%;
-                @include FRow();
+                @include FRow(center,start);
                 gap: var(--Width1Column40);
 
                 .Project {
@@ -214,6 +223,7 @@ body {
                     gap: $gap20;
                     flex-shrink: 0;
                     background: linear-gradient(160deg, var(--Dark10) 0%, var(--Dark30) 100%);
+                    transition: $Transition;
 
                     img {
                         width: 100%;;
@@ -234,6 +244,34 @@ body {
                         .CTA_Button {
                             @include CTA_Button();
                         }
+                    }
+                    &.prev {
+                        order: 1;
+                    }
+                    &.active {
+                        order: 2;
+                    }
+                    &.next {
+                        order: 3;
+                    }
+                }
+            }
+            #arrows {
+                position: absolute;
+                width: 100%;
+                @include FRow();
+                padding: 20px;
+                gap: calc(var(--Width8Columns) - 80px);
+
+                i {
+                    font-size: 3rem;
+                    cursor: pointer;
+                    transition: $Transition;
+                    color: var(--Light10);
+
+                    &:hover {
+                        color: var(--Light20);
+                        transform: scale(1.1);
                     }
                 }
             }
@@ -274,5 +312,12 @@ body {
                 } 
             }
         }
+    }
+    footer {
+        @include FRow();
+        @include BFont(1rem);
+        padding: 20px;
+        background-color: var(--Dark10);
+        color: var(--Light20);
     }
 }
