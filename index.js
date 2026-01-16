@@ -15,14 +15,19 @@ const projects = [
     image: "deluxo.png"
   },
   {
-    name: "Deluxo Animation",
-    description: "A complete recreation of the DeLorean DMC-12 known as the Deluxo from GTA V or the iconic Back to the Future car. I modeled the entire vehicle from scratch and brought it to life in a stylized animation.",
-    image: "deluxo.png"
+    name: "Liminal Shot",
+    description: "A shot exploring the concept of liminal spaces in a surreal environment.",
+    image: "liminal.png"
   },
   {
-    name: "Deluxo Animation",
-    description: "A complete recreation of the DeLorean DMC-12 known as the Deluxo from GTA V or the iconic Back to the Future car. I modeled the entire vehicle from scratch and brought it to life in a stylized animation.",
-    image: "deluxo.png"
+    name: "Dune Ornithopter",
+    description: "A recreation of the iconic Ornithopter from the Dune universe, focusing on hard-surface modeling and realistic texturing.",
+    image: "ornithopter.png"
+  },
+  {
+    name: "Steampunk Airship",
+    description: "A detailed steampunk airship model showcasing intricate design and atmospheric rendering techniques.",
+    image: "steampunk.png"
   }
 ];
 

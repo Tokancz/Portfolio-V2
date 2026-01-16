@@ -7,6 +7,7 @@
   --Dark30: #1B202D;
   --Primary60: #895AF6;
   --Primary70: #AC8BF9;
+  --Primary80: #CEBBFB;
 }
 
 @font-face {
@@ -81,7 +82,7 @@ body header nav ul li a.CTA_Button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--Primary60);
+  background: linear-gradient(160deg, var(--Primary60) 0%, var(--Primary70) 100%);
   color: var(--Light10);
   border: none;
   border-radius: 2px;
@@ -154,7 +155,7 @@ body main #hero .CTA_Button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--Primary60);
+  background: linear-gradient(160deg, var(--Primary60) 0%, var(--Primary70) 100%);
   color: var(--Light10);
   border: none;
   border-radius: 2px;
@@ -221,7 +222,7 @@ body main #about-me #Me_Card #About_Container #buttons .CTA_Button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--Primary60);
+  background: linear-gradient(160deg, var(--Primary60) 0%, var(--Primary70) 100%);
   color: var(--Light10);
   border: none;
   border-radius: 2px;
@@ -239,6 +240,7 @@ body main #about-me #Me_Card #About_Container #buttons .CTA_Button:active {
 }
 body main #about-me #Me_Card img {
   width: var(--Width5Columns);
+  user-select: none;
 }
 body main #projects {
   position: relative;
@@ -251,13 +253,16 @@ body main #projects {
   padding: 50px 0;
 }
 body main #projects #Projects_Container {
+  height: 700px;
   width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: start;
   gap: var(--Width1Column40);
 }
 body main #projects #Projects_Container .Project {
+  position: absolute;
   width: var(--Width6Columns);
   display: flex;
   flex-direction: column;
@@ -266,10 +271,14 @@ body main #projects #Projects_Container .Project {
   gap: 20px;
   flex-shrink: 0;
   background: linear-gradient(160deg, var(--Dark10) 0%, var(--Dark30) 100%);
-  transition: 0.3s;
+  opacity: 0;
+  transform: translateX(0) scale(0.85);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+  will-change: transform, opacity;
 }
 body main #projects #Projects_Container .Project img {
   width: 100%;
+  user-select: none;
 }
 body main #projects #Projects_Container .Project div {
   width: calc((100% - 100px) / 3 * 2 + 100px);
@@ -300,7 +309,7 @@ body main #projects #Projects_Container .Project div .CTA_Button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--Primary60);
+  background: linear-gradient(160deg, var(--Primary60) 0%, var(--Primary70) 100%);
   color: var(--Light10);
   border: none;
   border-radius: 2px;
@@ -317,13 +326,20 @@ body main #projects #Projects_Container .Project div .CTA_Button:active {
   background-color: var(--Primary70);
 }
 body main #projects #Projects_Container .Project.prev {
-  order: 1;
+  transform: translateX(-450px) scale(0.85);
+  opacity: 0.5;
+  z-index: 2;
 }
 body main #projects #Projects_Container .Project.active {
-  order: 2;
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
 }
 body main #projects #Projects_Container .Project.next {
-  order: 3;
+  transform: translateX(450px) scale(0.85);
+  opacity: 0.5;
+  z-index: 2;
 }
 body main #projects #arrows {
   position: absolute;
@@ -339,6 +355,7 @@ body main #projects #arrows i {
   cursor: pointer;
   transition: 0.3s;
   color: var(--Light10);
+  z-index: 4;
 }
 body main #projects #arrows i:hover {
   color: var(--Light20);
@@ -385,7 +402,9 @@ body main #contact #socials a i {
   width: 3.5rem;
   text-align: center;
   font-size: 3.5rem;
-  color: var(--Primary70);
+  background: -webkit-linear-gradient(var(--Primary60), var(--Primary80));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 body footer {
   display: flex;

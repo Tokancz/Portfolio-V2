@@ -7,6 +7,7 @@
     --Dark30: #1B202D;
     --Primary60: #895AF6;
     --Primary70: #AC8BF9;
+    --Primary80: #CEBBFB;
 }
 
 @font-face {
@@ -54,7 +55,7 @@ $gap40: 40px;
     height: $height;
     @include BFont($size);
     @include FRow();
-    background-color: var(--Primary60);
+    background: linear-gradient(160deg, var(--Primary60) 0%, var(--Primary70) 100%);
     color: var(--Light10);
     border: none;
     border-radius: $Border_radius2;
@@ -202,6 +203,7 @@ body {
                 }
                 img {
                     width: var(--Width5Columns);
+                    user-select: none;
                 }
             }
         }
@@ -213,20 +215,33 @@ body {
             padding: 50px 0;
 
             #Projects_Container {
+                height: 700px;
                 width: 100%;
+                position: relative;
                 @include FRow(center,start);
                 gap: var(--Width1Column40);
+                $Carousel_translate: 450px;
 
                 .Project {
+                    position: absolute;
                     width: var(--Width6Columns);
                     @include FColumn();
                     gap: $gap20;
                     flex-shrink: 0;
                     background: linear-gradient(160deg, var(--Dark10) 0%, var(--Dark30) 100%);
-                    transition: $Transition;
+
+                    opacity: 0;
+                    transform: translateX(0) scale(0.85);
+
+                    transition:
+                        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.4s ease;
+
+                    will-change: transform, opacity;
 
                     img {
-                        width: 100%;;
+                        width: 100%;
+                        user-select: none;
                     }
                     div {
                         width: calc((100% - 100px) / 3 * 2 + 100px);
@@ -246,13 +261,20 @@ body {
                         }
                     }
                     &.prev {
-                        order: 1;
+                        transform: translateX(calc($Carousel_translate * -1)) scale(0.85);
+                        opacity: 0.5;
+                        z-index: 2;
                     }
                     &.active {
-                        order: 2;
+                        transform: translateX(0) scale(1);
+                        opacity: 1;
+                        z-index: 3;
+                        pointer-events: auto;
                     }
                     &.next {
-                        order: 3;
+                        transform: translateX($Carousel_translate) scale(0.85);
+                        opacity: 0.5;
+                        z-index: 2;
                     }
                 }
             }
@@ -268,6 +290,7 @@ body {
                     cursor: pointer;
                     transition: $Transition;
                     color: var(--Light10);
+                    z-index: 4;
 
                     &:hover {
                         color: var(--Light20);
@@ -307,7 +330,9 @@ body {
                         width: 3.5rem;
                         text-align: center;
                         font-size: 3.5rem;
-                        color: var(--Primary70);
+                        background: -webkit-linear-gradient(var(--Primary60), var(--Primary80));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
                     }
                 } 
             }
